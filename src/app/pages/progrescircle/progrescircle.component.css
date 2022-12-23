@@ -1,0 +1,31 @@
+.live {
+  font-size: 24px;
+}
+
+.titlepro {
+  color: rgb(94, 94, 94);
+}
+
+.numpro {
+  color: rgb(64, 65, 249);
+}
+
+.numpro1 {
+  background-color: rgb(64, 65, 249);
+}
+
+.numred {
+  color: rgb(254, 103, 103);
+}
+
+.numred1 {
+  background-color: rgb(254, 103, 103);
+}
+
+.numyellow {
+  color: rgb(228, 192, 58);
+}
+
+.numyellow1 {
+  background-color: rgb(228, 192, 58);
+}

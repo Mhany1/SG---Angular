@@ -1,0 +1,67 @@
+.bgcolor {
+    background-image: linear-gradient(to right, rgb(224, 105, 126), rgb(187, 111, 167), rgb(119, 126, 246));
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+h6 {
+    margin-top: 20px;
+    color: white;
+}
+
+.line {
+    line-height: 26px;
+}
+
+.social {
+    border-radius: 50%;
+    border: 1px solid white;
+    padding: 10px;
+    color: white;
+    font-size: 22px;
+    margin-right: 10px;
+}
+
+.social:hover {
+    background-color: black;
+    border: 1px solid black;
+}
+
+.finall {
+    font-size: 20px;
+}
+
+@media screen and (max-width:670px) {
+    .maindiv {
+        width: 100% !important;
+        border-right: none !important;
+        text-align: center;
+        padding-top: 18px;
+    }
+
+    .line {
+        margin-top: 0%;
+    }
+
+    .maindiv1 {
+        margin-top: 25px;
+        padding-left: 38px;
+    }
+
+    .maindiv2 {
+        margin-top: 26px;
+        padding-left: 38px;
+    }
+
+    .socials {
+        padding-left: 38px;
+    }
+
+    .finall {
+        padding-left: 28px;
+    }
+
+}

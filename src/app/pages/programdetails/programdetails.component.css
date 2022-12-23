@@ -1,0 +1,136 @@
+.pdetails {
+  font-size: 55px;
+  font-weight: 600;
+}
+
+.smalls {
+  font-size: 18px;
+}
+
+.smalls1 {
+  cursor: pointer;
+  font-size: 18px;
+
+}
+
+.smalls1:hover {
+  color: #6F77F4;
+}
+
+.pschool {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #6F77F4;
+}
+
+.create {
+  font-size: 25px;
+}
+
+.bs {
+  font-size: 15px;
+  color: #7B7B7B;
+}
+
+.maincat {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.smallcat {
+  font-size: 19px;
+  color: #7B7B7B;
+}
+
+.fee {
+  color: #6F77F4;
+}
+
+.btnprogram {
+  border: none;
+  background-image: linear-gradient(to right, rgb(224, 105, 126), rgb(187, 111, 167), rgb(119, 126, 246));
+  color: white;
+  border-radius: 11px;
+  width: 280px;
+  font-size: 21px;
+}
+
+.bgcolor {
+  background-image: linear-gradient(to right, rgb(221, 221, 250), rgb(237, 223, 238), rgb(249, 223, 228));
+}
+
+.live {
+  font-size: 24px;
+}
+
+.nav-link {
+  color: black;
+}
+
+.nav-link:focus {
+  color: #6F77F4;
+}
+
+
+
+summary {
+  background-color: white;
+  color: black;
+  font-size: 22px;
+}
+
+details[open] {
+  color: grey;
+
+}
+
+details[open] summary {
+  margin-bottom: 6px;
+}
+
+.texts {
+  color: grey;
+}
+
+.head {
+  font-size: 17.5px;
+  font-weight: 400;
+}
+
+.head i {
+  color: #7B7B7B;
+  padding-right: 8px;
+}
+
+.result {
+  color: #7B7B7B;
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.smaly {
+  font-size: 17px;
+}
+
+.allvideo {
+  border: 1px solid rgb(202, 201, 201);
+  border-radius: 4px;
+}
+
+iframe {
+  border-radius: 4px;
+}
+
+@media screen and (max-width:670px) {
+  .datavid {
+    position: relative;
+    bottom: 2944px;
+  }
+
+  .colum7 {
+    position: relative;
+    top: 950px;
+    margin-bottom: 100px;
+  }
+}

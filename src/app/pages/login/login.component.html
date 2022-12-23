@@ -1,0 +1,50 @@
+<main class="container-fluid bg-back  ">
+	<div class="row">
+		<div class="col-md-6 mx-auto p-0 ">
+			<div class="card mt-5">
+				<div class="login-box">
+					<div class="login-snip">
+						<input id="tab-1" type="radio" name="tab" class="sign-in" checked /><label for="tab-1"
+							class="tab">Login with your account</label>
+						<div class="login-space mt-3">
+							<form [formGroup]="loginForm" novalidate>
+								<div class="login">
+									<div class="group">
+										<label for="pass" class="label">Email</label>
+										<input id="pass" type="text" class="input mt-1"
+											placeholder="Enter your email address" formControlName="email" #emailAddress
+											[class.is-invalid]="email?.invalid &&email?.touched" />
+										<div style="z-index: 99999;" class="text-danger"
+											*ngIf="(email?.invalid &&email?.touched)||email?.dirty">
+											<small class="text-danger"
+												*ngIf="email?.errors?.['required']">required</small>
+											<small class="text-danger" *ngIf="email?.errors?.['pattern']"> Email is
+												incorrect</small>
+										</div>
+									</div>
+									<div class="group">
+										<label for="pass" class="label">Password</label>
+										<input id="pass" type="password" class="input mt-1" data-type="password"
+											#userPassword placeholder="Enter your password" matInput
+											formControlName="password" />
+									</div>
+									<div class="group">
+										<input type="submit" class="button fs-6" value="Login"
+											[disabled]="loginForm.invalid" [class.btn-danger]="loginForm.invalid" />
+									</div>
+									<div class="hr"></div>
+									<div class="foot">
+										<small>Don't have an account? <a
+												style="font-weight: bold;color: rgb(155, 108, 108);" class="forget"
+												href="/signup">Sign
+												Up</a></small>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>

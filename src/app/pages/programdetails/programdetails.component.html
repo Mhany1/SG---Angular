@@ -1,0 +1,150 @@
+<main class="mb-5 pb-5">
+    <div class="bgcolor">
+        <div class="container pt-lg-5 pb-5">
+            <div *ngFor="let pro of finalProgram">
+                <p class="pdetails">Program Details</p>
+                <div class="d-flex">
+                    <p class="smalls1">Home</p>
+                    <p routerLink="/programs" class="ms-lg-1 smalls1">/ Programs</p>
+                    <p class="ms-lg-1 smalls">/ {{pro.progName}}</p>
+                    <p class="ms-lg-1 smalls">/ Overview</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mt-lg-5 allpage">
+            <div class="col-lg-7 colum7">
+                <div class="row">
+                    <section *ngFor="let pro of finalProgram">
+                        <div class="col-lg-9 d-flex justify-content-around">
+                            <img class="pschool" src="https://studentgator.com/assets/images/schools/KEDGE%20BS.png"
+                                alt="">
+                            <div class="">
+                                <p class="create mb-0">Created by</p>
+                                <P class="bs">{{pro.schoolName.substr(0,8)}} SCHOOL</P>
+                            </div>
+                            <div style="border-left: 1px solid black;" class="borderleft ps-4">
+                                <p class="create mb-0">Categories</p>
+                                <P class="bs">{{pro.category}}</P>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="mt-4" *ngFor="let pro of finalProgram">
+                        <p class="maincat mb-1">{{pro.category}}</p>
+                        <p class="smallcat mb-lg-5">{{pro.progName}}</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-10">
+                            <nav style="font-size: 19px;"
+                                class="bg-light text-center d-flex justify-content-around p-2">
+                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    <a class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                                        routerLink="#nav-home" role="tab" aria-controls="nav-home"
+                                        aria-selected="true">OVERVIEW</a>
+                                    <a class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+                                        routerLink="#nav-profile" role="tab" aria-controls="nav-profile"
+                                        aria-selected="false">CITY INFO</a>
+                                    <a class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
+                                        routerLink="#nav-contact" role="tab" aria-controls="nav-contact"
+                                        aria-selected="false">SCHOOL PHOTO</a>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div *ngFor="let pro of finalProgram" class="tab-content mt-4" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                            aria-labelledby="nav-home-tab">
+                            <h3>Program Description</h3>
+                            <p class="mt-4 mb-1 texts">{{pro.desc}}</p>
+                            <div class="mt-5">
+                                <h3>Alumin</h3>
+                                <p class="live mt-2">Where They Live?</p>
+                            </div>
+                            <div>
+                                <app-progres></app-progres>
+                                <app-progrescircle></app-progrescircle>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <h3>About {{pro.city}}</h3>
+                            <p class="mt-4 texts">Bordeaux is a very attractive city with more than 87,000 students.
+                                Less than
+                                an hour from the Atlantic Ocean and the Arcachon Basin, Bordeaux has all the
+                                characteristics of a modern and dynamic city while keeping those of the South of France;
+                                sunshine and a pleasant living environment.Very well connected to the rest of France, it
+                                is only 2 hours by train from the capital. If you like to take a leisurely stroll,
+                                Bordeaux has made its city centre an area exclusively dedicated to pedestrians and
+                                trams. The city centre is full of shops, bars, restaurants, cinemas, discos, which makes
+                                the city even more dynamic, as well as many places to visit. This is where the student
+                                status is beneficial; indeed you can have a young card, very easy to obtain, it will
+                                allow you to have many discounts on museums, plays, cinemas... enough to liven up your
+                                weekends!</p>
+                            <div class="mt-5">
+                                <h3>Frequently Asked Questions</h3>
+                                <details>
+                                    <summary>Why Should I Live In Paris?</summary>
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                    richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+                                    brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
+                                    aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                                    Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente
+                                    ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                                    farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+                                    accusamus labore sustainable VHS.
+                                </details>
+                                <h3 class="mt-5">Other Schools</h3>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                            <h3>Our Gallery</h3>
+                            <img class="w-100 mt-4"
+                                src="https://studentgator.com/assets/images/schools/KEDGE%20BS/1.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 datavid">
+                <div *ngFor="let pro of finalProgram" class="allvideo p-2">
+                    <div>
+                        <iframe class="w-100 mb-4" width="560" height="315"
+                            src="https://www.youtube.com/embed/A109s6vMNyA" title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <p class="head"><i class="fas fa-location-dot"></i> Location</p>
+                        <p class="result">{{pro.city}}</p>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-around">
+                        <p class="head"><i class="fas fa-rotate"></i> Duration</p>
+                        <p class="result">{{pro.lenght}} Years</p>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-around">
+                        <p class="head"><i class="fab fa-leanpub"></i> LevelEdu</p>
+                        <p class="result">{{pro.level}}</p>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-around">
+                        <p class="head"><i class="fas fa-globe"></i> Language</p>
+                        <p class="result">{{pro.lang}}</p>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-around">
+                        <p class="head"><i class="fas fa-hourglass-end"></i> In Take</p>
+                        <p class="result">{{pro.start_date}}</p>
+                    </div>
+                    <hr>
+
+                    <h5 class="col-7 text-center fee">{{pro.fee}}$ <small class="smaly"> Pre -Year</small></h5>
+                    <div class="text-center">
+                        <button class="btnprogram p-3 m-4">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
