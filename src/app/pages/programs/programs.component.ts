@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Iprogram } from 'src/app/moduls/main';
+import { Iprogram } from 'src/app/models/main';
 import { MainService } from 'src/app/services/main.service';
 
 @Component({
@@ -16,28 +16,70 @@ export class ProgramsComponent {
   city: string = 'None'
   school: string = 'None'
   num: number = 1
-  baseUrl: string = `https://admin-mfyg726r7q-uc.a.run.app/filter2/${this.num}?name=None&city=${this.city}&Language=${this.Language}&type=None&level=${this.level}&sort=None&school=${this.school}&category=${this.category}`
+  baseUrl: string = `https://admin-mfyg726r7q-uc.a.run.app/filter2/1?name=None&city=${this.city}&Language=${this.Language}&type=None&level=${this.level}&sort=None&school=${this.school}&category=${this.category}`
   programs: Iprogram[] = []
   finalData: Iprogram[] = []
   searchTerm: string = ''
+  showd: boolean = true
+  categoryItemNotFound: boolean = false
+  loadingDiv: boolean = false
 
   page: number = 1;
   count: number = 0;
   tableSize: number = 9;
   tableSizes: any = [3, 6, 9, 12]
 
+  @ViewChild('loading') load!: ElementRef
+  @ViewChild('datares') data!: ElementRef
+
 
   form: any = FormGroup
   formprice: any = FormGroup
 
+  categories: Array<any> = [
+    { name: 'Arts, Design & Architecture', value: 'Arts, Design %26 Architecture' },
+    { name: 'Business & Management', value: 'Business %26 Management' },
+    { name: 'Computer Science & IT', value: 'Computer Science %26 IT' },
+    { name: 'Engineering & Technology', value: 'Engineering %26 Technology' },
+    { name: 'Marketing & communication', value: 'Marketing %26 communication' }
+  ];
+
+  schools: Array<any> = [
+    { name: 'AUDENCIA', value: 'AUDENCIA' },
+    { name: 'CYTech', value: 'CYTech' },
+    { name: 'IESEG', value: 'IESEG' },
+    { name: 'ISC', value: 'ISC' },
+    { name: 'IUBH', value: 'IUBH' }
+  ];
+
+  cities: Array<any> = [
+    { name: 'Bad Honnef', value: 'Bad Honnef' },
+    { name: 'Berlin', value: 'Berlin' },
+    { name: 'Oxford', value: 'Oxford' },
+    { name: 'Paris', value: 'Paris' },
+    { name: 'Raleigh', value: 'Raleigh' }
+  ];
+
 
 
   ngOnInit(): void {
+    this.loadingDiv = true
     this.mainservice.postData(this.baseUrl).subscribe(data => {
-      this.programs = data
-      this.finalData = data
-    }
-    )
+      if (data) {
+        this.hideloader()
+        this.programs = data
+        this.finalData = data
+        if (data.length == 0) {
+          this.categoryItemNotFound = true
+        } else {
+          this.categoryItemNotFound = false
+        }
+      }
+    })
+  }
+
+  hideloader() {
+    this.loadingDiv = false
   }
   onTableDataChange(event: any) {
     this.page = event;
@@ -60,7 +102,7 @@ export class ProgramsComponent {
       this.city = event.target.value
     if (event.target.name == 'category')
       this.category = event.target.value
-    this.baseUrl = `https://admin-mfyg726r7q-uc.a.run.app/filter2/${this.num}?name=None&city=None&Language=${this.Language}&type=None&level=${this.level}&sort=None&school=None&category=${this.category}`
+    this.baseUrl = `https://admin-mfyg726r7q-uc.a.run.app/filter2/1?name=None&city=${this.city}&Language=${this.Language}&type=None&level=${this.level}&sort=None&school=${this.school}&category=${this.category}`
     this.ngOnInit()
   }
 
@@ -71,6 +113,7 @@ export class ProgramsComponent {
         if (a.fee > b.fee) return -1;
         return 0;
       })
+      this.categoryItemNotFound = false
     }
     if (event.target.value == 'low-to-high') {
       this.programs.sort((a: Iprogram, b: Iprogram) => {
@@ -80,6 +123,16 @@ export class ProgramsComponent {
       })
     }
 
+  }
+
+  showData() {
+    if (this.showd == true) {
+      this.data.nativeElement.style.display = 'block'
+      this.showd = false
+    } else {
+      this.data.nativeElement.style.display = 'none'
+      this.showd = true
+    }
   }
 
   resetData() {
@@ -96,6 +149,9 @@ export class ProgramsComponent {
         if (this.programs[index].category != null) {
           if (this.programs[index].category.toLocaleLowerCase().trim().includes(this.searchTerm.toLocaleLowerCase().trim())) {
             filtaredarray.push(this.programs[index])
+            this.categoryItemNotFound = false
+          } if (filtaredarray.length == 0) {
+            this.categoryItemNotFound = true
           }
         }
       }
@@ -104,6 +160,4 @@ export class ProgramsComponent {
 
 
   }
-
-
 }

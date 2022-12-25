@@ -216,6 +216,8 @@ a {
 	border: 0.5px solid #a51731b9;
 }
 
-.forget:hover {
-	color: brown;
+.forget {
+	font-weight: bold;
+	color: rgb(255, 81, 81);
+	;
 }

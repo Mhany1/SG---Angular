@@ -1,3 +1,8 @@
+option {
+    background-color: white;
+    color: grey;
+}
+
 .totalcard:hover {
     box-shadow: #e4a9c6 0px 2px 4px 0px, #e4a9c6 0px 2px 16px 0px;
     z-index: 9999;
@@ -149,7 +154,11 @@
 .cityoption {
     border: none;
     height: 55px;
-    font-size: 20px;
+    font-size: 22px;
+}
+
+.opci {
+    font-size: 15.7px;
 }
 
 .categoryoption {
@@ -157,6 +166,23 @@
     height: 55px;
     background-color: #f5f5f5;
     border: 10px;
+}
+
+.categoryoption:focus {
+    outline: none;
+}
+
+.cityoption:focus {
+    outline: none;
+}
+
+.schooloption:focus {
+    outline: none;
+}
+
+.nofound {
+    text-align: center;
+    color: #6F77F4;
 }
 
 .schooloption {
@@ -185,6 +211,10 @@
 .lines {
     color: #8087f5;
     font-weight: 400;
+    font-size: 19px;
+}
+
+.resschool {
     font-size: 19px;
 }
 
@@ -225,7 +255,6 @@ input[type='radio']:checked:after {
     font-size: 30px;
     font-weight: 700;
     color: #4f4f4f;
-    /* width: 602px; */
     line-height: 53px;
 }
 
@@ -234,7 +263,6 @@ input[type='radio']:checked:after {
     background-image: linear-gradient(to bottom, rgb(224, 105, 126), rgb(187, 111, 167), rgb(119, 126, 246));
     color: white;
     border-radius: 9px;
-    /* width: 280px; */
     font-size: 20px;
 }
 
@@ -298,6 +326,87 @@ input[type='radio']:checked:after {
         padding-left: 20px;
         margin-top: 0%;
     }
+
+    .fullcard {
+        display: none;
+    }
+
+    .rescard {
+        display: block;
+    }
+}
+
+@media screen and (min-width:670px) {
+    .rescard {
+        display: none;
+    }
+}
+
+.bgblue {
+    background-color: rgb(242, 246, 247);
+    cursor: pointer;
+}
+
+.bgblue:hover {
+    border: 1px solid #6F77F4;
+
+}
+
+.cardtxtres {
+    font-size: 14px;
+    line-height: 18px;
+    color: #8b8888;
+}
+
+.iconsres {
+    color: grey;
+    font-size: 14.5px;
+}
+
+.feeres {
+    font-size: 17.6px;
+    font-weight: bold;
+    color: #F66666;
+}
+
+.imgcardres {
+    border-radius: 8px;
+    height: 164px;
+    position: relative;
+}
+
+.smallimg {
+    position: absolute;
+    top: 140px;
+    left: 20px;
+    border-radius: 6px;
+}
+
+.schoolres {
+    color: white;
+    font-size: 11.5px;
+    position: absolute;
+    top: 168px;
+    left: 20px;
+    font-weight: 500;
+    text-transform: lowercase;
+}
+
+.heartres {
+    position: absolute;
+    top: 161px;
+    left: 126px;
+    font-size: 19px;
+    color: rgb(213, 222, 224);
+    font-weight: bold;
+    text-decoration-color: #8b8b8b;
+    text-shadow: -1px 0 #8b8b8b, 0 1px #8b8b8b, 1px 0 #8b8b8b, 0 -1px #8b8b8b;
+}
+
+.yellowlang:hover {
+    background-color: rgb(212, 157, 54);
+    padding: 4px;
+    border-radius: 6px;
 }
 
 .searchbtn {
@@ -308,7 +417,6 @@ input[type='radio']:checked:after {
 
 .links {
     position: relative;
-    /* background-color: red; */
 }
 
 .links:hover .icon span:nth-child(2) {
@@ -350,7 +458,7 @@ input[type='radio']:checked:after {
     list-style: none;
     margin: 0;
     padding: 0;
-    background-color: #f6f6f6;
+    background-color: white;
     position: absolute;
     left: vw;
     min-width: 470px;
@@ -369,9 +477,6 @@ input[type='radio']:checked:after {
     top: -15px;
 }
 
-.links:hover ul {
-    display: block;
-}
 
 .links ul li a {
     display: block;
@@ -397,4 +502,72 @@ input[type='radio']:checked:after {
     .links {
         display: none;
     }
+}
+
+
+
+
+
+
+select {
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 5px;
+}
+
+select:hover {
+    background-color: gren;
+}
+
+option:hover {
+    background-color: yellow;
+}
+
+option {
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    color: grey;
+    background-color: white;
+}
+
+
+.loader {
+    width: 120px;
+    aspect-ratio: 1;
+    display: grid;
+    -webkit-mask: conic-gradient(from 22deg, #0003, #000);
+    mask: conic-gradient(from 22deg, #0003, #000);
+    animation: load 1s steps(8) infinite;
+}
+
+.loader,
+.loader:before {
+    --_g: linear-gradient(rgb(224, 105, 126), rgb(187, 111, 167), rgb(119, 126, 246)) 50%;
+    background:
+        var(--_g)/34% 8% space no-repeat,
+        var(--_g)/8% 34% no-repeat space;
+}
+
+.loader:before {
+    content: "";
+    transform: rotate(45deg);
+}
+
+@keyframes load {
+    from {
+        transform: rotate(0turn)
+    }
+
+    to {
+        transform: rotate(1turn)
+    }
+}
+
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-content: center;
 }

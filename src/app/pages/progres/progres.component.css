@@ -180,5 +180,10 @@
      margin: auto;
      display: flex;
      justify-content: center;
+     color: #e4abab;
+   }
+
+   .center {
+     text-align: center;
    }
  }

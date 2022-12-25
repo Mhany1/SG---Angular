@@ -11,6 +11,8 @@ export class NavbarComponent {
 
   background: boolean = true
   background1: boolean = false
+  background2: boolean = false
+  background3: boolean = false
 
   displayInput() {
     this.searchinput.nativeElement.style.display = 'block'
